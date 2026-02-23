@@ -13,3 +13,17 @@ report.html
 .turbo/
 .next/
 coverage/
+
+# Local development & deployment guides (not needed in repo)
+DEPLOYMENT*.md
+READY_TO_DEPLOY.md
+FINAL_DEPLOYMENT.md
+GITHUB_DEPLOYMENT.md
+PUSH_COMMANDS.md
+START_HERE.md
+MIGRATION_GUIDE.md
+PRODUCTION_READY.md
+PROJECT_OVERVIEW.md
+SUMMARY.md
+VISUAL_SUMMARY.md
+PRE_LAUNCH_CHECKLIST.md

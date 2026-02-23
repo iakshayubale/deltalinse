@@ -42,8 +42,8 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ci-diff-report.git
-cd ci-diff-report
+git clone https://github.com/yourusername/deltalinse.git
+cd deltalinse
 
 # Install dependencies
 npm install

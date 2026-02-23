@@ -11,7 +11,7 @@
 
 ```bash
 # Navigate to project
-cd ci-diff-report
+cd deltalinse
 
 # Install dependencies
 npm install
@@ -132,13 +132,13 @@ gradle test
   uses: ./my-test-action
   
 - name: Generate report
-  run: npx ci-diff-report old.xml new.xml
+  run: npx deltalinse old.xml new.xml
 ```
 
 ### Step 2: Run CLI
 
 ```bash
-ci-diff-report old_results.xml new_results.xml
+deltalinse old_results.xml new_results.xml
 ```
 
 ### Step 3: View Report
@@ -265,7 +265,7 @@ jobs:
         continue-on-error: true
       
       - name: Generate report
-        run: npx ci-diff-report old_results.json new_results.json
+        run: npx deltalinse old_results.json new_results.json
       
       - name: Upload artifact
         uses: actions/upload-artifact@v3
@@ -282,9 +282,9 @@ Create `.gitlab-ci.yml` section:
 test_report_diff:
   stage: test
   script:
-    - npm install -g ci-diff-report
+    - npm install -g deltalinse
     - npm test
-    - ci-diff-report old_results.xml new_results.xml
+    - deltalinse old_results.xml new_results.xml
   artifacts:
     paths:
       - report.html
@@ -317,7 +317,7 @@ npm audit fix
 ls -la old_results.xml new_results.xml
 
 # Use absolute paths
-ci-diff-report /full/path/old.xml /full/path/new.xml
+deltalinse /full/path/old.xml /full/path/new.xml
 ```
 
 **Invalid XML**

@@ -1,12 +1,12 @@
 {
-  "name": "ci-diff-report",
+  "name": "deltalinse",
   "version": "1.0.0",
   "description": "The Git Diff for Test Results. See exactly what changed in your tests in seconds. No server. No config.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "ci-diff-report": "dist/cli.js"
+    "deltalinse": "dist/cli.js"
   },
   "files": [
     "dist",
@@ -41,11 +41,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/iakshayubale/ci-diff-report.git"
+    "url": "https://github.com/iakshayubale/deltalinse.git"
   },
-  "homepage": "https://github.com/iakshayubale/ci-diff-report",
+  "homepage": "https://github.com/iakshayubale/deltalinse",
   "bugs": {
-    "url": "https://github.com/iakshayubale/ci-diff-report/issues"
+    "url": "https://github.com/iakshayubale/deltalinse/issues"
   },
   "funding": {
     "type": "github",

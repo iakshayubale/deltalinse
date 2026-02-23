@@ -1,278 +1,359 @@
-# 🧪 CI Diff Report
+# 🔍 DeltaLinse
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/yourusername/ci-diff-report/build-and-test.yml?branch=main&style=flat-square)](https://github.com/yourusername/ci-diff-report/actions)
-[![npm version](https://img.shields.io/npm/v/ci-diff-report?style=flat-square)](https://www.npmjs.com/package/ci-diff-report)
-[![npm downloads](https://img.shields.io/npm/dm/ci-diff-report?style=flat-square)](https://www.npmjs.com/package/ci-diff-report)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/iakshayubale/deltalinse/build-and-test.yml?branch=main&style=flat-square)](https://github.com/iakshayubale/deltalinse/actions)
+[![npm version](https://img.shields.io/npm/v/deltalinse?style=flat-square)](https://www.npmjs.com/package/deltalinse)
+[![npm downloads](https://img.shields.io/npm/dm/deltalinse?style=flat-square)](https://www.npmjs.com/package/deltalinse)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/node/v/ci-diff-report?style=flat-square)](https://nodejs.org/)
+[![Node.js Version](https://img.shields.io/node/v/deltalinse?style=flat-square)](https://nodejs.org/)
 
-> **The Git Diff for Test Results**
-> 
-> See exactly what changed in your tests in seconds. No server. No config.
+**🎯 Like Git Diff, but for Test Results**
 
-## Why CI Diff Report?
+See exactly what changed in your tests between two runs. In seconds. In a single HTML file. Zero setup.
 
-Instead of pretty dashboards, you get laser-focused insight into what actually broke in your pull request:
+---
 
-- **Pass → Fail** (red) — New regressions
-- **Fail → Pass** (green) — Fixed tests
-- **Flaky Detection** — Tests that unreliably fail/pass
-- **Performance Regression** — Tests running >20% slower
-- **Failure Clustering** — Similar failures grouped together
+## The Problem: Test Result Blindness 🤔
 
-All in a **single HTML file** with zero setup required.
+You've just merged a pull request. CI runs. Tests pass/fail. You get an email notification. Then... what?
 
-## Quick Start
+### ❌ Old Way: The Dashboard Hunting Game
 
-```bash
-# Install
-npm install -g ci-diff-report
-
-# Generate report
-ci-diff-report old_results.xml new_results.xml
-
-# Output
-# ✅ HTML Report generated: report.html
-
-# With PR comment preview
-ci-diff-report old_results.xml new_results.xml --pr-comment
+```
+❌ 150 tests ran - which ones matter?
+❌ 8 failed - are these NEW failures?
+❌ Were any tests FIXED in this PR?
+❌ Is test X flaky or legitimately broken?
+❌ Are tests slower than yesterday?
+❌ Why are these 3 failures similar?
+❌ Time spent: 15+ minutes
+❌ Clarity: Confused
 ```
 
-## Features
+### ✅ New Way: DeltaLinse - Instant Clarity
+
+```
+✅ Compare two test runs in ONE command
+✅ NEW failures highlighted in RED
+✅ FIXED tests highlighted in GREEN  
+✅ FLAKY tests marked immediately
+✅ SIMILAR failures grouped together
+✅ PERFORMANCE regressions flagged
+✅ Time spent: 30 seconds
+✅ Clarity: Crystal clear
+```
+
+**Think of it this way:**
+
+| Traditional Tools | DeltaLinse |
+|---|---|
+| **Git**: Shows entire repo | **Git Diff**: Shows only changes ✨ |
+| **Test Dashboards**: Show all results | **DeltaLinse**: Show only changes ✨ |
+
+---
+
+## Why This Tool Exists
+
+### The Real Problem We Solve
+
+**Dashboards show you EVERYTHING. DeltaLinse shows you what CHANGED.**
+
+When your CI runs tests:
+- Dashboard says: "150 total tests, 148 passed, 2 failed"
+- DeltaLinse answers: "Were those 2 failures NEW? Were any old failures FIXED? Are they FLAKY?"
+
+### Why Your Team Needs This
+
+Your team doesn't care about all test results. Your team cares about:
+- ✅ "Did I break anything new?"
+- ✅ "Did I fix something?"
+- ✅ "Is this a real failure or flaky?"
+- ✅ "Are tests running slower?"
+
+**Existing tools miss this entirely.**
+
+---
+
+## How We're Different
+
+## How We're Different
+
+### 🚀 vs. Test Dashboards (Allure, Kiln, TestNG)
+**Dashboard**: "Here are 500 test results arranged nicely."  
+**DeltaLinse**: "Here are the differences. Focus on what changed." ✨
+
+### 🚀 vs. CI Platforms (Jenkins, GitHub Actions)  
+**CI Platform**: "Your build passed/failed. Check the logs."  
+**DeltaLinse**: "Here's what CHANGED in test results between builds." ✨
+
+### 🚀 vs. Metrics Tools (Grafana, Prometheus)
+**Metrics**: "Test counts over the last 30 days."  
+**DeltaLinse**: "What changed THIS run vs LAST run?" ✨
+
+### 🚀 vs. Log Aggregators (ELK, Splunk)
+**Aggregator**: "Search through millions of test logs manually."  
+**DeltaLinse**: "Failures grouped by similarity. Your answers ready." ✨
+
+---
+
+## What You Get
 
 ### 🎯 Automatic Regression Highlighting
+Instantly see what changed:
 
-Instantly see:
-- Tests that regressed (pass → fail)
-- Tests that were fixed (fail → pass)
-- Flaky tests (inconsistent behavior)
-- Performance regressions (duration >20% increase)
+```
+✅ FIXED:        3 tests (were failing, now passing) - GREEN
+🔴 NEW FAILURES: 5 tests (were passing, now failing) - RED
+⚠️  FLAKY:       2 tests (unstable, fail/pass varies) - YELLOW
+🐢 SLOW:         7 tests (now >20% slower) - ORANGE
+🔗 GROUPED:      Similar failures clustered by cause
+```
 
-### 📄 Single Self-Contained HTML
+### 📊 Interactive Heatmap
+Visual test suite health at a glance:
+- Color gradient from red (0% pass rate) to green (100% pass rate)
+- Shows top 15 test suites by health status
+- Hover for detailed pass/fail counts
+- Instantly spot failures in your test matrix
 
-Everything embedded:
-- CSS styling
-- JavaScript interactivity
-- JSON data
-- No external dependencies
-- Shareable anywhere (Slack, email, PR comments)
+### 💾 Single HTML File
+Everything embedded - nothing external needed:
+- ✅ CSS styling (no stylesheets)
+- ✅ JavaScript interactivity (works offline)
+- ✅ JSON data (all comparisons)
+- ✅ Heatmap visualization
+- ✅ Share via Slack, Email, S3, or Comments
 
 ### 🔗 Failure Clustering
+Similar failures grouped together:
+- Groups by error message similarity (Levenshtein distance)
+- Identifies patterns across failures
+- Help you spot root causes faster
 
-Failures grouped by:
-- Error type similarity
-- Error message similarity
-- Stacktrace patterns
+### ⚡ Zero Configuration
+```bash
+# That's literally it
+deltalinse old_results.xml new_results.xml
+```
 
-Helps identify systemic issues vs one-off failures.
+No YAML files. No databases. No servers. No authentication.
 
 ### 💬 PR Comment Ready
-
-Generate markdown summaries perfect for adding to pull requests:
-
-```markdown
-## 🧪 Test Summary
-| | |
-|---|---|
-| 🔴 **New Failures** | 2 |
-| ✅ **Fixed Tests** | 1 |
-| ⚠️ **Flaky Tests** | 3 |
-| ⏱️ **Slower (>20%)** | 5 |
+Generate markdown for pull requests instantly:
+```bash
+deltalinse old_results.xml new_results.xml --pr-comment
 ```
+
+---
+
+## Real-World Use Cases
+
+### Use Case 1: Pull Request Testing
+**Scenario**: You just opened a PR with 50 test changes.
+
+**Old way**: 
+- CI dashboard shows 142/150 passing
+- You have no idea which tests changed status
+- You check logs manually (30 minutes)
+
+**With DeltaLinse**:
+```bash
+deltalinse main-tests.xml feature-tests.xml
+# Instant report shows:
+# 🟢 5 tests FIXED
+# 🔴 2 tests BROKE (investigate!)
+# 🟡 1 test is FLAKY
+```
+
+### Use Case 2: Performance Regression Detection
+**Scenario**: Tests running slowly but you don't know which ones.
+
+```bash
+deltalinse baseline.xml current.xml
+# Report highlights tests now >20% slower
+# Helps catch performance regressions early
+```
+
+### Use Case 3: Flaky Test Isolation
+**Scenario**: "Is test X legitimately broken or just flaky?"
+
+```bash
+deltalinse yesterday-tests.xml today-tests.xml
+# 🟡 Test marked as FLAKY if it fails sometimes, passes sometimes
+# Ready to isolate and fix
+```
+
+### Use Case 4: Release Verification
+**Scenario**: "Did we break anything from the last version?"
+
+```bash
+deltalinse v1.0.0-tests.xml v1.1.0-tests.xml
+# Compare test results between versions
+# Ensure zero regressions before shipping
+```
+
+---
 
 ## Installation
 
-### via npm (Recommended)
+### ⚡ Quick Start (Global)
 
-**Global Installation**
+### ⚡ Quick Start (Global)
 ```bash
-npm install -g ci-diff-report
-ci-diff-report old_results.xml new_results.xml
+npm install -g deltalinse
+deltalinse old_results.xml new_results.xml
+# ✅ Opens report.html automatically
 ```
 
-**Local Installation (in project)**
+### 📦 Other Installation Methods
+
+**Local to Project** (Recommended for CI)
 ```bash
-npm install --save-dev ci-diff-report
-npx ci-diff-report old_results.xml new_results.xml
+npm install --save-dev deltalinse
+npx deltalinse old_results.xml new_results.xml
 ```
 
-### via npx (No Installation)
+**Via npx** (No Install Needed)
 ```bash
-npx ci-diff-report old_results.xml new_results.xml
+npx deltalinse old_results.xml new_results.xml
 ```
 
-### via GitHub Releases
-Download the latest release from [Releases](https://github.com/iakshayubale/ci-diff-report/releases)
+**From GitHub Releases**
+Download directly: [github.com/iakshayubale/deltalinse/releases](https://github.com/iakshayubale/deltalinse/releases)
 
-### via Homebrew (macOS)
-```bash
-# Coming soon
-brew install ci-diff-report
-```
-
-## Installation
-
-### Global CLI
-```bash
-npm install -g ci-diff-report
-```
-
-### Local
-```bash
-npm install --save-dev ci-diff-report
-npx ci-diff-report old.xml new.xml
-```
+---
 
 ## Usage
 
-### Basic
+## Usage
+
 ```bash
-ci-diff-report old_results.xml new_results.xml
+# Basic usage
+deltalinse old_results.xml new_results.xml
+
+# Custom output file
+deltalinse old_results.xml new_results.xml --output my-report.html
+
+# Generate PR comment markdown
+deltalinse old_results.xml new_results.xml --pr-comment
+
+# Custom slow threshold (default: 20% slower)
+deltalinse old_results.xml new_results.xml --threshold 30
 ```
 
-### With Custom Output
-```bash
-ci-diff-report old_results.xml new_results.xml --output my-report.html
-```
+---
 
-### Generate PR Comment
-```bash
-ci-diff-report old_results.xml new_results.xml --pr-comment
-```
+## Supported Formats
 
-### Custom Duration Threshold
-```bash
-# Mark tests as slow if >30% slower (default: 20%)
-ci-diff-report old_results.xml new_results.xml --threshold 30
-```
+✅ **JUnit XML** (Standard format from most CI systems)
 
-## Supported Test Formats
+Compatible with:
+- Jest
+- Pytest  
+- Maven Surefire
+- Gradle Test Reports
+- GitHub Actions
+- GitLab CI
+- Jenkins
+- CircleCI
+- Azure DevOps
 
-- JUnit XML (standard format from most CI systems)
-- Works with: Jest, Pytest, Maven, Gradle, GitHub Actions, GitLab CI, Jenkins, CircleCI, etc.
+---
 
-## CI/CD Integration
+## CI/CD Integration Examples
 
 ### GitHub Actions
-
 ```yaml
 - name: Generate test report diff
   if: always()
-  run: |
-    npx ci-diff-report old_results.xml new_results.xml --pr-comment
+  run: npx deltalinse old_results.xml new_results.xml --pr-comment
 ```
 
 ### GitLab CI
-
 ```yaml
 test_report_diff:
   script:
-    - npx ci-diff-report old_results.xml new_results.xml --pr-comment
+    - npx deltalinse old_results.xml new_results.xml --pr-comment
   artifacts:
     paths:
       - report.html
 ```
 
 ### Jenkins
-
 ```groovy
 stage('Test Report') {
   steps {
-    sh 'npx ci-diff-report ${WORKSPACE}/old.xml ${WORKSPACE}/new.xml'
+    sh 'npx deltalinse old.xml new.xml'
   }
 }
 ```
 
-## Architecture
+---
 
-```
-┌─────────────────────┐
-│   CLI Entry Point   │
-└──────────┬──────────┘
-           │
-    ┌──────┴──────┐
-    ▼             ▼
- [old.xml]    [new.xml]
-    │             │
-    └──────┬──────┘
-           │
-    ┌──────▼──────────┐
-    │ Parse Results   │ (JUnit XML)
-    └──────┬──────────┘
-           │
-    ┌──────▼──────────┐
-    │  Compare Tests  │ (Detect regressions, fixes, flaky)
-    └──────┬──────────┘
-           │
-    ┌──────▼──────────┐
-    │ Cluster Failures│ (Group by similarity)
-    └──────┬──────────┘
-           │
-    ┌──────▼──────────┐
-    │ Generate Report │ (HTML + JSON + CSS + JS)
-    └──────┬──────────┘
-           │
-      [report.html] ◄─── Single self-contained file
-```
+## Why Teams Choose DeltaLinse
 
-## Example Workflow
-
-1. Run tests for base branch: `old_results.xml`
-2. Run tests for feature branch: `new_results.xml`
-3. Generate diff: `ci-diff-report old_results.xml new_results.xml`
-4. Open `report.html` in browser
-5. See exactly what changed
-6. Share link or add to PR
-
-## Key Differentiators
-
-| Feature | CI Diff Report | Traditional Dashboards |
-|---------|---|---|
-| **Setup** | 0 minutes | 30+ minutes |
-| **Focus** | What changed | Pretty charts |
-| **Storage** | Single HTML file | Database + backend |
-| **Sharing** | Email/Slack/PR | Link to dashboard |
-| **Learning curve** | Instant | Days |
-| **Git-friendly** | Yes (commit report.html) | No |
-
-## Development
-
-### Build
-```bash
-npm run build
-```
-
-### Watch mode
-```bash
-npm run dev
-```
-
-### Test with examples
-```bash
-npm run build
-node dist/cli.js examples/old_results.xml examples/new_results.xml --pr-comment
-```
-
-## Why This Works
-
-Most teams ask: **"Our test reports aren't pretty enough"**
-
-But developers really want: **"I don't know what actually broke in this PR"**
-
-CI Diff Report answers the second question better than anyone by:
-- Being stateless (no server)
-- Being diff-focused (what changed?)
-- Being zero-setup (one command)
-- Being developer-first (solves real problems)
-
-## License
-
-MIT
-
-## Contributing
-
-We're early stage and focused on the core use case. Suggestions welcome!
+✅ **Developers**: Instant clarity on what your changes broke  
+✅ **QA**: See exactly which tests regressed  
+✅ **CI/CD**: Integrate in 30 seconds, zero config  
+✅ **Release Mgmt**: Verify zero regressions before shipping  
+✅ **Team Leads**: Beautiful reports to share  
 
 ---
 
-**Made for developers who care about test signal.**
+## The Philosophy
+
+**Every dashboard tries to SHOW MORE.** 
+
+**DeltaLinse shows what CHANGED.**
+
+Just like `git diff` changed how we review code, DeltaLinse changes how we review test results.
+
+---
+
+## Key Features
+
+|  |  |
+|---|---|
+| 🎯 **Regression Detection** | See pass→fail instantly |
+| ✅ **Fix Detection** | See fail→pass with green |
+| ⚠️ **Flaky Tests** | Identify unstable tests |
+| 🐢 **Performance Analysis** | Find >20% slower tests |
+| 🔗 **Error Clustering** | Group similar failures |
+| 📊 **Heatmap** | Color-coded test health |
+| 💬 **PR Comments** | Ready-made markdown |
+| 📁 **Single File** | No server needed |
+| ⚡ **Zero Config** | Works out of the box |
+| 🔒 **Private** | Runs locally |
+
+---
+
+## Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+**Want to help?**
+- Report bugs
+- Suggest features
+- Improve documentation
+- Add format support
+- Optimize performance
+
+---
+
+## Resources
+
+- **[QUICKSTART.md](QUICKSTART.md)** - 2-minute quick start
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Developer guidelines
+- **[CHANGELOG.md](CHANGELOG.md)** - Version history & releases
+- **[GitHub Issues](https://github.com/iakshayubale/deltalinse/issues)** - Bug reports & features
+
+---
+
+## License
+
+MIT © 2026 - Free for commercial and personal use
+
+---
+
+## Made with ❤️ for teams who care about test quality
+
+*DeltaLinse: The Git Diff for Test Results*

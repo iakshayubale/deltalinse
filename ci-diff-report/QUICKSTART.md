@@ -4,9 +4,9 @@
 
 ### 1. Install
 ```bash
-npm install -g ci-diff-report
+npm install -g deltalinse
 # or
-npm install --save-dev ci-diff-report
+npm install --save-dev deltalinse
 ```
 
 ### 2. Get Test Results
@@ -15,14 +15,14 @@ You need two JUnit XML test result files:
 - `new_results.xml` - Results from feature branch
 
 Most CI systems generate these automatically:
-- **Jest**: Add `--json --outputFile=results.json` to test command, convert with ci-diff-report
+- **Jest**: Add `--json --outputFile=results.json` to test command, convert with deltalinse
 - **Pytest**: Use `pytest --junit-xml=results.xml`
 - **Maven**: Generates in `target/surefire-reports/`
 - **GitHub Actions**: Use `EnricoMi/publish-unit-test-result-action`
 
 ### 3. Generate Report
 ```bash
-ci-diff-report old_results.xml new_results.xml
+deltalinse old_results.xml new_results.xml
 ```
 
 This creates `report.html` in your current directory.
@@ -62,7 +62,7 @@ The report shows:
 ### Generate PR Comment
 Perfect for adding to pull requests:
 ```bash
-ci-diff-report old.xml new.xml --pr-comment
+deltalinse old.xml new.xml --pr-comment
 ```
 
 Outputs markdown like:
@@ -75,13 +75,13 @@ Outputs markdown like:
 
 ### Custom Output Location
 ```bash
-ci-diff-report old.xml new.xml --output reports/latest.html
+deltalinse old.xml new.xml --output reports/latest.html
 ```
 
 ### Adjust Performance Threshold
 ```bash
 # Mark tests as slow if >30% slower (instead of default 20%)
-ci-diff-report old.xml new.xml --threshold 30
+deltalinse old.xml new.xml --threshold 30
 ```
 
 ## Programmatic Usage
@@ -93,7 +93,7 @@ import {
   TestResultParser,
   TestComparator,
   ReportGenerator 
-} from 'ci-diff-report';
+} from 'deltalinse';
 
 const parser = new TestResultParser();
 const oldResults = parser.parse('old.xml');
@@ -132,7 +132,7 @@ jobs:
       - name: Generate report
         if: always()
         run: |
-          npx ci-diff-report old_results.json new_results.json
+          npx deltalinse old_results.json new_results.json
           
       - name: Upload report
         if: always()
@@ -147,9 +147,9 @@ jobs:
 test_report:
   image: node:18
   script:
-    - npm install -g ci-diff-report
+    - npm install -g deltalinse
     - npm test
-    - ci-diff-report old_results.xml new_results.xml
+    - deltalinse old_results.xml new_results.xml
   artifacts:
     paths:
       - report.html
@@ -169,8 +169,8 @@ pipeline {
     stage('Report Diff') {
       steps {
         sh '''
-          npm install -g ci-diff-report
-          ci-diff-report ${WORKSPACE}/old_results.json \
+          npm install -g deltalinse
+          deltalinse ${WORKSPACE}/old_results.json \
                          ${WORKSPACE}/new_results.json
         '''
       }
@@ -200,7 +200,7 @@ pipeline {
 
 **Need help?**
 - Check examples: `examples/old_results.xml` and `examples/new_results.xml`
-- Run: `ci-diff-report --help` (coming soon)
+- Run: `deltalinse --help` (coming soon)
 
 ---
 

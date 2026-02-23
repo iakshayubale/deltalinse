@@ -155,7 +155,7 @@ Step 6: Regenerate report to verify
 Auto-generates GitHub/GitLab PR comment markdown:
 
 ```bash
-ci-diff-report old.xml new.xml --pr-comment
+deltalinse old.xml new.xml --pr-comment
 ```
 
 Output:
@@ -210,7 +210,7 @@ CI Diff Report: 5 minutes (or less)
 #### No Configuration Needed
 ```bash
 # Just works
-ci-diff-report old.xml new.xml
+deltalinse old.xml new.xml
 
 # That's the entire configuration
 ```
@@ -221,7 +221,7 @@ ci-diff-report old.xml new.xml
 
 #### Basic Usage
 ```bash
-ci-diff-report <old-file> <new-file> [options]
+deltalinse <old-file> <new-file> [options]
 ```
 
 #### Options
@@ -234,16 +234,16 @@ ci-diff-report <old-file> <new-file> [options]
 #### Examples
 ```bash
 # Simple
-ci-diff-report old.xml new.xml
+deltalinse old.xml new.xml
 
 # With custom output
-ci-diff-report test-main.xml test-feature.xml --output feature-report.html
+deltalinse test-main.xml test-feature.xml --output feature-report.html
 
 # With PR comment
-ci-diff-report old.xml new.xml --pr-comment
+deltalinse old.xml new.xml --pr-comment
 
 # With custom threshold
-ci-diff-report old.xml new.xml --threshold 30
+deltalinse old.xml new.xml --threshold 30
 ```
 
 ---
@@ -258,7 +258,7 @@ import {
   FailureClusterer,
   ReportGenerator,
   PRCommentGenerator
-} from 'ci-diff-report';
+} from 'deltalinse';
 
 // Parse XML
 const parser = new TestResultParser();
@@ -382,12 +382,12 @@ Build custom tools on top of CI Diff Report without forking.
 ```
 Developer pushes feature branch
 → CI runs tests
-→ ci-diff-report generates report
+→ deltalinse generates report
 → Developer opens report.html
 → Sees 1 new failure, 2 flaky tests
 → Fixes issues locally
 → Pushes new commit
-→ ci-diff-report shows: Fixed ✅
+→ deltalinse shows: Fixed ✅
 ```
 
 ### Scenario 2: Code Review

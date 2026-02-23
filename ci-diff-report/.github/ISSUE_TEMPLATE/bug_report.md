@@ -24,7 +24,7 @@ What actually happened.
 ## Environment
 - OS: [macOS, Linux, Windows]
 - Node version: [e.g., 18.x, 20.x]
-- ci-diff-report version: [e.g., 1.0.0]
+- deltalinse version: [e.g., 1.0.0]
 
 ## Test Results Files
 If possible, attach minimal JUnit XML test result files that reproduce the issue.

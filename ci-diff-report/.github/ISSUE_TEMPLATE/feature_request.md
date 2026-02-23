@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea for ci-diff-report
+about: Suggest an idea for deltalinse
 title: '[FEATURE] '
 labels: 'enhancement'
 assignees: ''

@@ -22,7 +22,7 @@ async function main() {
     // Validate inputs
     if (!options.oldReport || !options.newReport) {
       console.error(
-        '❌ Usage: ci-diff-report <old-report.xml> <new-report.xml> [--output report.html] [--pr-comment]'
+        '❌ Usage: deltalinse <old-report.xml> <new-report.xml> [--output report.html] [--pr-comment]'
       );
       process.exit(1);
     }

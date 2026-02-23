@@ -1,0 +1,67 @@
+{
+  "name": "deltalinse",
+  "version": "1.0.0",
+  "description": "The Git Diff for Test Results. See exactly what changed in your tests in seconds. No server. No config.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "deltalinse": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/cli.js",
+    "test": "node --test dist/tests/**/*.test.js",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "test",
+    "report",
+    "diff",
+    "regression",
+    "ci",
+    "cd",
+    "junit",
+    "xml",
+    "flaky",
+    "html",
+    "testing",
+    "quality",
+    "automation"
+  ],
+  "author": "CI Diff Report Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iakshayubale/deltalinse.git"
+  },
+  "homepage": "https://github.com/iakshayubale/deltalinse",
+  "bugs": {
+    "url": "https://github.com/iakshayubale/deltalinse/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/yourusername"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^4.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

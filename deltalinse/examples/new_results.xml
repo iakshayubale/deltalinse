@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="UserService" tests="5" failures="0" errors="0" skipped="0" time="2.891">
+    <testcase classname="UserService" name="testCreateUser" time="0.612"/>
+    <testcase classname="UserService" name="testUpdateUser" time="0.234"/>
+    <testcase classname="UserService" name="testDeleteUser" time="0.145"/>
+    <testcase classname="UserService" name="testGetUserByEmail" time="0.901"/>
+    <testcase classname="UserService" name="testValidateEmail" time="0.999"/>
+  </testsuite>
+
+  <testsuite name="AuthController" tests="5" failures="1" errors="0" skipped="0" time="2.456">
+    <testcase classname="AuthController" name="testLogin" time="0.512"/>
+    <testcase classname="AuthController" name="testLogout" time="0.234"/>
+    <testcase classname="AuthController" name="testRefreshToken" time="0.678"/>
+    <testcase classname="AuthController" name="testPermissionDenied" time="0.399"/>
+    <testcase classname="AuthController" name="testSessionExpiry" time="0.633">
+      <failure type="AssertionError" message="Session should have expired">
+        Expected session to be invalid but was still valid
+      </failure>
+    </testcase>
+  </testsuite>
+
+  <testsuite name="DatabaseService" tests="6" failures="0" errors="0" skipped="1" time="3.123">
+    <testcase classname="DatabaseService" name="testConnection" time="0.523"/>
+    <testcase classname="DatabaseService" name="testQuery" time="1.234"/>
+    <testcase classname="DatabaseService" name="testTransactionCommit" time="0.789"/>
+    <testcase classname="DatabaseService" name="testTransactionRollback" time="0.456"/>
+    <testcase classname="DatabaseService" name="testPooling" time="0.234"/>
+    <testcase classname="DatabaseService" name="testMigration">
+      <skipped/>
+    </testcase>
+  </testsuite>
+
+  <testsuite name="NotificationService" tests="3" failures="0" errors="0" skipped="0" time="1.234">
+    <testcase classname="NotificationService" name="testEmailSend" time="0.523"/>
+    <testcase classname="NotificationService" name="testSmsSend" time="0.345"/>
+    <testcase classname="NotificationService" name="testPushNotification" time="0.366"/>
+  </testsuite>
+</testsuites>

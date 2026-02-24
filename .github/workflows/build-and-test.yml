@@ -32,7 +32,7 @@ jobs:
       
       - name: Test with examples
         run: |
-          node dist/cli.js examples/old_results.xml examples/new_results.xml
+          node dist/cli/cli.js examples/old_results.xml examples/new_results.xml
           test -f report.html && echo "✓ Report generated successfully"
       
       - name: Check for TypeScript errors

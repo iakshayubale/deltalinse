@@ -30,11 +30,6 @@ jobs:
       - name: Build project
         run: npm run build
       
-      - name: Create .npmrc file
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
-          chmod 600 .npmrc
-      
       - name: Verify package
         run: |
           echo "📦 Package name:"

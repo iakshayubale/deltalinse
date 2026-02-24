@@ -47,10 +47,6 @@
   "bugs": {
     "url": "https://github.com/iakshayubale/deltalinse/issues"
   },
-  "funding": {
-    "type": "github",
-    "url": "https://github.com/sponsors/yourusername"
-  },
   "dependencies": {
     "fast-xml-parser": "^4.3.5"
   },

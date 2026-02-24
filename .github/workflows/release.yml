@@ -30,6 +30,18 @@ jobs:
       - name: Build project
         run: npm run build
       
+      - name: Create .npmrc file
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          chmod 600 .npmrc
+      
+      - name: Verify package
+        run: |
+          echo "📦 Package name:"
+          npm pkg get name
+          echo "📦 Package version:"
+          npm pkg get version
+      
       - name: Publish to npm
         run: npm publish --access public
         env:
@@ -51,12 +63,16 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
-            const version = context.ref.replace('refs/tags/v', 'v');
-            
-            github.rest.repos.updateRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              release_id: context.payload.release.id,
+            if (fs.existsSync('CHANGELOG.md')) {
+              const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
+              const version = context.ref.replace('refs/tags/v', 'v');
+              
+              github.rest.repos.updateRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                release_id: context.payload.release.id,
+                body: changelog.split('## ')[1]?.split('\n\n')[0] || 'See CHANGELOG.md for details'
+              });
+            }
               body: changelog.split('## ')[1].split('\n\n')[0]
             });

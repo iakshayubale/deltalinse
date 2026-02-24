@@ -3,7 +3,7 @@
  * Compares old and new test results to identify regressions, fixes, and changes
  */
 
-import type { ParsedResults, TestComparison, TestResult } from './types.js';
+import type { ParsedResults, TestComparison, TestResult } from '../types/index.js';
 
 export class TestComparator {
   compare(

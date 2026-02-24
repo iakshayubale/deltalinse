@@ -1,12 +1,12 @@
 {
   "name": "deltalinse",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Git Diff for Test Results. See exactly what changed in your tests in seconds. No server. No config.",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "deltalinse": "dist/cli.js"
+    "deltalinse": "dist/cli/cli.js"
   },
   "files": [
     "dist",

@@ -3,7 +3,7 @@
  * Groups failures by error similarity (stacktrace & message)
  */
 
-import type { TestComparison, FailureCluster } from './types.js';
+import type { TestComparison, FailureCluster } from '../types/index.js';
 
 export class FailureClusterer {
   cluster(comparisons: TestComparison[]): FailureCluster[] {

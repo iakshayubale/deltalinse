@@ -3,11 +3,11 @@
  * Export all classes for building custom tools on top of CI Diff Report
  */
 
-export { TestResultParser } from './parser.js';
-export { TestComparator } from './comparator.js';
-export { FailureClusterer } from './clusterer.js';
-export { ReportGenerator } from './reporter.js';
-export { PRCommentGenerator } from './pr-comment.js';
+export { TestResultParser } from './parsers/junit.js';
+export { TestComparator } from './core/comparator.js';
+export { FailureClusterer } from './core/clusterer.js';
+export { ReportGenerator } from './formatters/html-report.js';
+export { PRCommentGenerator } from './utils/pr-comment.js';
 
 export type {
   TestResult,
@@ -17,4 +17,4 @@ export type {
   FailureCluster,
   ReportSummary,
   CLIOptions,
-} from './types.js';
+} from './types/index.js';

@@ -3,7 +3,7 @@
  * Creates a premium, single-file HTML report with embedded CSS, JS, and JSON
  */
 
-import type { TestComparison, FailureCluster, ReportSummary } from './types.js';
+import type { TestComparison, FailureCluster, ReportSummary } from '../types/index.js';
 
 export class ReportGenerator {
   generateSummary(

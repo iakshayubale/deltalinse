@@ -7,12 +7,12 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import type { CLIOptions } from './types.js';
-import { TestResultParser } from './parser.js';
-import { TestComparator } from './comparator.js';
-import { FailureClusterer } from './clusterer.js';
-import { ReportGenerator } from './reporter.js';
-import { PRCommentGenerator } from './pr-comment.js';
+import type { CLIOptions } from '../types/index.js';
+import { TestResultParser } from '../parsers/junit.js';
+import { TestComparator } from '../core/comparator.js';
+import { FailureClusterer } from '../core/clusterer.js';
+import { ReportGenerator } from '../formatters/html-report.js';
+import { PRCommentGenerator } from '../utils/pr-comment.js';
 
 async function main() {
   try {

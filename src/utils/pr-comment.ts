@@ -3,7 +3,7 @@
  * Generates markdown summary suitable for GitHub/GitLab PR comments
  */
 
-import type { ReportSummary } from './types.js';
+import type { ReportSummary } from '../types/index.js';
 
 export class PRCommentGenerator {
   generate(summary: ReportSummary): string {

@@ -5,7 +5,7 @@
 
 import * as fs from 'fs';
 import { XMLParser } from 'fast-xml-parser';
-import type { TestResult, TestSuite, ParsedResults } from './types.js';
+import type { TestResult, TestSuite, ParsedResults } from '../types/index.js';
 
 export class TestResultParser {
   private parser: XMLParser;

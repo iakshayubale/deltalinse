@@ -17,6 +17,19 @@ import { PRCommentGenerator } from '../utils/pr-comment.js';
 async function main() {
   try {
     const args = process.argv.slice(2);
+    
+    // Handle --help flag
+    if (args.includes('--help') || args.includes('-h')) {
+      printHelp();
+      process.exit(0);
+    }
+    
+    // Handle --version flag
+    if (args.includes('--version') || args.includes('-v')) {
+      printVersion();
+      process.exit(0);
+    }
+    
     const options = parseArgs(args);
 
     // Validate inputs
@@ -24,6 +37,7 @@ async function main() {
       console.error(
         '❌ Usage: deltalinse <old-report.xml> <new-report.xml> [--output report.html] [--pr-comment]'
       );
+      console.error('\nRun "deltalinse --help" for more information');
       process.exit(1);
     }
 
@@ -92,6 +106,47 @@ async function main() {
     console.error('❌ Error:', error instanceof Error ? error.message : String(error));
     process.exit(1);
   }
+}
+
+function printHelp(): void {
+  console.log(`
+DeltaLinse - The Git Diff for Test Results
+v1.1.0
+
+Usage:
+  deltalinse <old-report.xml> <new-report.xml> [options]
+
+Arguments:
+  <old-report.xml>        Path to baseline JUnit XML test results
+  <new-report.xml>        Path to current JUnit XML test results
+
+Options:
+  --output <file>         Output HTML report path (default: report.html)
+  --pr-comment            Generate GitHub PR comment markdown
+  --threshold <number>    Slowness threshold in percent (default: 20)
+  --help, -h              Show this help message
+  --version, -v           Show version number
+
+Examples:
+  # Generate HTML report
+  deltalinse old_results.xml new_results.xml
+
+  # Custom output path
+  deltalinse old.xml new.xml --output my-report.html
+
+  # Generate PR comment
+  deltalinse old.xml new.xml --pr-comment
+
+  # Set performance threshold to 30%
+  deltalinse old.xml new.xml --threshold 30
+
+Documentation:
+  https://github.com/iakshayubale/deltalinse
+  `);
+}
+
+function printVersion(): void {
+  console.log('1.1.0');
 }
 
 function parseArgs(args: string[]): CLIOptions {

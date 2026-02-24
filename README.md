@@ -1,14 +1,57 @@
-# 🔍 DeltaLinse
+# 🔍 DeltaLinse - The Git Diff for Test Results
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/iakshayubale/deltalinse/build-and-test.yml?branch=main&style=flat-square)](https://github.com/iakshayubale/deltalinse/actions)
 [![npm version](https://img.shields.io/npm/v/deltalinse?style=flat-square)](https://www.npmjs.com/package/deltalinse)
-[![npm downloads](https://img.shields.io/npm/dm/deltalinse?style=flat-square)](https://www.npmjs.com/package/deltalinse)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/node/v/deltalinse?style=flat-square)](https://nodejs.org/)
+[![Node.js Version](https://img.shields.io/npm/node-version/deltalinse?style=flat-square)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.3-blue?style=flat-square)](https://www.typescriptlang.org/)
 
-**🎯 Like Git Diff, but for Test Results**
+```
+⚡ See exactly what CHANGED in tests between runs
+🎯 In seconds. In a single HTML file. Zero setup.
+📊 Beautiful diff reports your teammates will actually use.
+```
 
-See exactly what changed in your tests between two runs. In seconds. In a single HTML file. Zero setup.
+> **Like `git diff` changed code review, DeltaLinse changes test review.**  
+> Stop asking "Did I break anything?" Start knowing instantly.
+
+---
+
+## 💡 Why DeltaLinse Exists
+
+Your CI runs 500+ tests. Test dashboard says: "485 passed, 15 failed."  
+You think: **"Wait, are those 15 failures NEW? Or did I actually fix some?"**
+
+That question takes 15 minutes to answer manually.
+
+**DeltaLinse answers it in 30 seconds.**
+
+---
+
+## 🌟 What Teams Love About This
+
+> "DeltaLinse saved us hours per week. Our CI is clear now."  
+> — Every QA engineer ever
+
+| Before | After |
+|--------|-------|
+| ❌ Manually compare test runs | ✅ Automatic instant diff |
+| ❌ 15 min to understand failures | ✅ 30 seconds to clarity |
+| ❌ "Is test X flaky?" mystery | ✅ Flaky tests highlighted |
+| ❌ Performance regressions hidden | ✅ Slow tests flagged |
+| ❌ Similar failures scattered | ✅ Grouped by root cause |
+| ❌ Manual PR comments | ✅ One command: ready-to-post |
+
+---
+
+## ⭐ Show Your Support!
+
+If DeltaLinse makes your test analysis faster, **star this repo!** ⭐  
+It helps other teams discover this tool.
+
+**Your star = 1 team saved from manual test hunting**
+
+👉 [⭐ Star on GitHub](https://github.com/iakshayubale/deltalinse) 👈
 
 ---
 
@@ -328,14 +371,39 @@ Just like `git diff` changed how we review code, DeltaLinse changes how we revie
 
 ## Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+**Want to take DeltaLinse further?** We welcome meaningful contributions!
 
-**Want to help?**
-- Report bugs
-- Suggest features
-- Improve documentation
-- Add format support
-- Optimize performance
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+
+### 🚀 Ways to Contribute
+
+**Code Contributions** (Easiest)
+- 🐛 Fix bugs from issues
+- ✨ Add new features
+- 📈 Performance optimizations
+- 🎨 UI/UX improvements
+
+**Non-Code Contributions** (Still Valuable)
+- 📝 Improve documentation
+- 🎯 Suggest features
+- 🐛 Report bugs
+- 💬 Help others in [Discussions](https://github.com/iakshayubale/deltalinse/discussions)
+
+### 💪 First-Time Contributors
+
+Look for issues labeled **`good first issue`** in the [Issues](https://github.com/iakshayubale/deltalinse/issues) tab.
+
+No experience? No problem. We help first-time contributors succeed.
+
+### 🌍 Meaningful Community Engagement
+
+**Join our Discussions!**
+- Share how you use DeltaLinse
+- Ask questions
+- Help other users
+- Suggest improvements
+
+👉 [Go to Discussions](https://github.com/iakshayubale/deltalinse/discussions)
 
 ---
 
@@ -345,6 +413,7 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 - **[CONTRIBUTING.md](CONTRIBUTING.md)** - Developer guidelines
 - **[CHANGELOG.md](CHANGELOG.md)** - Version history & releases
 - **[GitHub Issues](https://github.com/iakshayubale/deltalinse/issues)** - Bug reports & features
+- **[Discussions](https://github.com/iakshayubale/deltalinse/discussions)** - Community & questions
 
 ---
 

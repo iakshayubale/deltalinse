@@ -66,13 +66,12 @@ jobs:
             if (fs.existsSync('CHANGELOG.md')) {
               const changelog = fs.readFileSync('CHANGELOG.md', 'utf8');
               const version = context.ref.replace('refs/tags/v', 'v');
+              const releaseNotes = changelog.split('## ')[1]?.split('\n\n')[0] || 'See CHANGELOG.md for details';
               
               github.rest.repos.updateRelease({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 release_id: context.payload.release.id,
-                body: changelog.split('## ')[1]?.split('\n\n')[0] || 'See CHANGELOG.md for details'
+                body: releaseNotes
               });
             }
-              body: changelog.split('## ')[1].split('\n\n')[0]
-            });
